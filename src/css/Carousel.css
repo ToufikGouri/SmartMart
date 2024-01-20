@@ -1,0 +1,47 @@
+.carousel {
+    width: 98vw;
+    background-color: #2c2c2c;
+}
+
+.carousel-item>div:first-child {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cImgParent {
+    height: 280px;
+    width: 280px;
+}
+
+.cImgParent img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+@media (min-width: 768px) {
+    .carouselCol-1 {
+        justify-content: end !important;
+        padding: 0 70px;
+    }
+
+    .carouselCol-2 {
+        justify-content: start !important;
+    }
+}
+
+/* Slick Css */
+
+.slick-slide>div {
+    margin: 0 10px;
+}
+
+/* To remove the default btns */
+.slick-prev:before,
+.slick-next:before {
+    content: '' !important;
+}

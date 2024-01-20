@@ -8,12 +8,12 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">SmartMart</Link>
-                    <input className="form-control search me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                    {/*<i className="fa-solid fa-magnifying-glass searchIcon"></i>*/} <input className="form-control search me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style={{ borderColor: "#8f8d8b" }}>
+                        <span className="navbar-toggler-icon" style={{ filter: "invert(1)" }}></span>
                     </button>
                     <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                         <ul className="navbar-nav mb-2 mb-lg-0">
