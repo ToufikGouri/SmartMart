@@ -15,7 +15,7 @@ const Carousel = ({ allData }) => {
 
     return (
         <>
-            <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
+            <div id="carouselExampleAutoplaying" className="carousel my-2 mb-4 slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
 
                     {/* To get new items line by line 0-5-10..95-99 */}

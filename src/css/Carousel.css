@@ -1,24 +1,28 @@
+/* aspect-ratio: 16/9; inline-size: 100% */
+
 .carousel {
     width: 98vw;
-    background-color: #2c2c2c;
+    background-color: #212121;
+    box-shadow: 0 0 15px 0px #606060;
 }
 
 .carousel-item>div:first-child {
-    /* border: 2px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .cImgParent {
-    height: 280px;
-    width: 280px;
+    /* height: 280px;
+    width: 280px; */
 }
 
 .cImgParent img {
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
     object-fit: cover;
+    aspect-ratio: 16/9;
+    inline-size: 100%;
 }
 
 
@@ -34,10 +38,62 @@
     }
 }
 
+/* Electronics Css */
+.eImgParent {
+    /* height: 180px; */
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eImgParent img {
+    /* height: 100%;
+    width: 100%; */
+    /* object-fit: cover; */
+    border-radius: 8px;
+    aspect-ratio: 16/9;
+    inline-size: 100%;
+}
+
+.eImgParent img:hover {
+    transition: 200ms ease-in-out;
+    transform: scale(1.1);
+    /* box-shadow: 0px 0px 10px 0px #bee2ff ; */
+}
+
+.eCard {
+    /* border: 1px solid white; */
+    background-color: #212121;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 250px;
+    width: 180px;
+    border-radius: 8px;
+}
+
+.electBtn {
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    border: 1px solid white;
+    height: 80px;
+    padding: 0 5px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    position: relative;
+}
+
+
 /* Slick Css */
 
+
 .slick-slide>div {
-    margin: 0 10px;
+    margin: 0 5px;
 }
 
 /* To remove the default btns */

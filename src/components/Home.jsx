@@ -5,7 +5,8 @@ import Loading from './Loading';
 import Categories from './Categories';
 import Carousel from './Carousel';
 import '../css/Home.css'
-import Electronics from './Electronics';
+import Electronics from './MultiCarousel';
+import MultiCarousel from './MultiCarousel';
 
 const Home = () => {
 
@@ -16,6 +17,8 @@ const Home = () => {
 
     // getting category vise 0-5-10..95-99
     const allCategories = (Object.keys(allData).length > 1) && allData.products.map(val => [val.category, val.images[0]]).filter((val, ind) => ind % 5 === 0)
+    const allElectronics = allCategories.length > 1 && allData.products.filter((val) => val.id <= 8 || (val.id > 60 && val.id < 65))
+    const allFashion = allCategories.length > 1 && allData.products.filter((val) => (val.id >= 41 && val.id < 45) || (val.id >= 76 && val.id < 84))
 
     useEffect(() => {
         dispatch(fetchAll())
@@ -39,8 +42,17 @@ const Home = () => {
                 </div>
 
                 <Carousel allData={allData} />
-{/* aspect-ration: 16/9; inline-size: 100% */}
-                <Electronics allData={allData} />
+
+                <div className='my-4'>
+                    <h4 className='ms-2'>Best Of Electronics</h4>
+                    <MultiCarousel multiData={allElectronics} />
+                </div>
+
+                <div className='my-4'>
+                    <h4 className='ms-2'>Top Fashion Of The Week</h4>
+                    <MultiCarousel multiData={allFashion} />
+                </div>
+
 
             </div>
         </>
