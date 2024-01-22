@@ -1,0 +1,39 @@
+.pOutParent {
+    background-color: #212121;
+    width: 80vw;
+}
+
+.pOutImgParent img {
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    inline-size: 100%;
+}
+
+.pCard {
+    background-color: #212121;
+    width: 60vw;
+}
+
+.pImgParent {
+    width: 250px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pImgParent img {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.pImgParent img:hover {
+    transition: 200ms ease-in-out;
+    transform: scale(1.1);
+    border-radius: 8px !important;
+    /* box-shadow: 0px 0px 10px 0px #bee2ff ; */
+}
+
+
+/* pContent to be jus-C-C in resposive */

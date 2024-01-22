@@ -6,6 +6,10 @@
     box-shadow: 0 0 15px 0px #606060;
 }
 
+.carousel-item:hover {
+    cursor: pointer;
+}
+
 .carousel-item>div:first-child {
     display: flex;
     justify-content: center;
@@ -73,6 +77,9 @@
     width: 180px;
     border-radius: 8px;
 }
+.eCard:hover{
+    cursor: pointer;
+}
 
 .electBtn {
     background-color: white;
@@ -98,6 +105,10 @@
     height: 250px;
     width: 180px;
     border-radius: 8px;
+}
+
+.sqCard:hover{
+    cursor: pointer;
 }
 
 .sqImgParent {

@@ -6,7 +6,7 @@ const Carousel = ({ allData }) => {
 
     const randoms = []
     while (randoms.length < 3) {
-        let val = Math.round(Math.random() * 50)
+        let val = Math.round(Math.random() * 95)
         if (randoms.includes(val)) {
             continue
         }
@@ -24,7 +24,7 @@ const Carousel = ({ allData }) => {
                     {/* To get random product each time */}
                     
                     {allData.products && allData.products.filter((val, ind) => randoms.includes(ind)).map((val,index) => {
-                        return <CarouselItem key={val.id} title={val.title} discount={val.discountPercentage} img={val.thumbnail} price={val.price} brand={val.brand} isActive={index}/>
+                        return <CarouselItem key={val.id} id={val.id} title={val.title} discount={val.discountPercentage} img={val.images[1] || val.images[0]} price={val.price} brand={val.brand} isActive={index}/>
                     }).slice(0, 3)}
 
                 </div>

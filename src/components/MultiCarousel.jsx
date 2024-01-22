@@ -3,9 +3,11 @@ import Slider from "react-slick";
 import '../css/Carousel.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from 'react-router-dom';
 
 const MultiCarousel = ({ multiData }) => {
 
+    const navigate = useNavigate()
     const slidesTS = 6
 
     const PreviousBtn = (props) => {
@@ -44,9 +46,6 @@ const MultiCarousel = ({ multiData }) => {
         prevArrow: <PreviousBtn />
     };
 
-    // console.log(allData.products && allData.products.filter((val) => {
-    //     return val.id <= 8 || (val.id > 60 && val.id < 65)
-    // }));
     // 0 SmartPhones,1 Laptops MEN Watches 12
 
     // 8 Women dresses, 16 Sunglasses, 10 Men shirts (In actual using,Mixed some neighbours too )
@@ -57,17 +56,17 @@ const MultiCarousel = ({ multiData }) => {
                 <Slider {...settings}>
                     {multiData && multiData.map((val) => {
 
-                        const content = Math.round(Math.random() * 2) /*To get random Content for each card */
-                        
+                        const content = Math.round(Math.random() * 2) /*To get random Text Content for each card */
+
                         return (
-                            <div className='text-center text-capitalize eCard' key={val.id}>
+                            <div onClick={() => navigate(`/category/${val.id}`)} className='text-center text-capitalize eCard' key={val.id}>
                                 <div className='eImgParent'>
                                     <img src={val.images[1] || val.images[0]} alt="Image" />
                                 </div>
                                 <h5 className='fw-light my-2'>{val.category}</h5>
                                 {
-                                    (content === 0) && <h6>From ${val.price}</h6> ||
-                                    (content === 1) && <h6>Up To {Math.round(val.discountPercentage)}% OFF</h6> ||
+                                    (content === 0) && <h6>From <span className='text-myGreen'>${val.price}</span></h6> ||
+                                    (content === 1) && <h6>Up To <span className='text-warning'>{Math.round(val.discountPercentage)}% OFF</span></h6> ||
                                     (content === 2) && <h6>Great Deals On {val.brand}</h6>
                                 }
                             </div>

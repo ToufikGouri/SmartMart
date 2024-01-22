@@ -1,9 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const Categories = ({ category, img }) => {
+const Categories = ({ category, img, id }) => {
+
+    const navigate = useNavigate()
+
     return (
         <>
-            <div className='categoriesParent d-flex flex-column align-items-center mx-3'>
+            <div onClick={() => navigate(`/category/${id}`)} className='categoriesParent d-flex flex-column align-items-center mx-3'>
                 <div>
                     <div className='categoryImg'>
                         <img src={img} alt="Product image" />

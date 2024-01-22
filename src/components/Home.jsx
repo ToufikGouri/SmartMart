@@ -14,12 +14,12 @@ import Footer from './Footer';
 const Home = () => {
 
     const dispatch = useDispatch();
-    const data = useSelector(state => state)
-    const { allData, categories } = data;
-    console.log("My data", data);
+    const allData = useSelector(state => state.allData)
+    const isLoading = useSelector(state => state.isLoading)
+    console.log("My data", allData);
 
     // getting category vise 0-5-10..95-99
-    const allCategories = (Object.keys(allData).length > 1) && allData.products.map(val => [val.category, val.images[0]]).filter((val, ind) => ind % 5 === 0)
+    const allCategories = (Object.keys(allData).length > 1) && allData.products.map(val => [val.category, val.images[0], val.id]).filter((val, ind) => ind % 5 === 0)
     const allElectronics = allCategories.length > 1 && allData.products.filter((val) => val.id <= 8 || (val.id > 60 && val.id < 65))
     const allFashion = allCategories.length > 1 && allData.products.filter((val) => (val.id >= 41 && val.id < 45) || (val.id >= 76 && val.id < 84))
     const menFashion = allCategories.length > 1 && allData.products.filter((val) => val.id >= 52 && val.id < 64)
@@ -35,10 +35,10 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(fetchAll())
-        dispatch(fetchCategories())
+        // dispatch(fetchCategories())
     }, [])
 
-    if (data.isLoading) {
+    if (isLoading) {
         return <div className='d-flex justify-content-center align-items-center' style={{ height: "90vh", width: "98vw" }}><Loading /></div>
     }
 
@@ -50,7 +50,7 @@ const Home = () => {
 
                 <div className="homeCategories d-flex flex-wrap justify-content-center my-2">
                     {allCategories.length > 1 && allCategories.map((val, ind) => {
-                        return <Categories key={ind} category={val[0]} img={val[1]} />
+                        return <Categories key={ind} category={val[0]} img={val[1]} id={val[2]} />  //View the allCategory data to understand the flow of props
                     }).slice(0, 8)}
                 </div>
 

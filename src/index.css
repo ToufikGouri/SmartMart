@@ -23,6 +23,10 @@ a:hover {
   color: #868686 !important
 }
 
+.text-myGreen{
+  color: #00d900 !important;
+}
+
 /* input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
