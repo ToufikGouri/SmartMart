@@ -1,12 +1,25 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
+
 import '../css/cPage.css'
 
-const PCcards = ({ data }) => {
+const PCcards = ({ data, routeToCategory }) => {
+
+    const navigate = useNavigate()
+
+    const redirectHandle = (id) => {
+        if (routeToCategory === true) {
+            navigate(`/category/${id}`)
+        } else {
+            navigate(`/description/${id}`)
+        }
+    }
+
     return (
         <div>
             {data.map((val) => {
                 return <div key={val.id} className='d-flex flex-column align-items-center m-4'>
-                    <div className='row pCard'>
+                    <div onClick={() => redirectHandle(val.id)} className='row pCard'> {/*It will be easy navigate from this card as this have classname for hover */}
                         <div className="col-md-6 d-flex justify-content-center">
                             <div className="pImgParent my-3">
                                 <img src={val.images[3] || val.images[0]} alt="" />

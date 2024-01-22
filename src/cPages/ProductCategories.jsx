@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { fetchAll } from '../functions/fetchData';
 import Loading from '../components/Loading';
 import '../css/cPage.css'
@@ -13,10 +13,19 @@ const ProductCategories = () => {
   const allData = useSelector(state => state.allData)
   const isLoading = useSelector(state => state.isLoading)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const { id } = useParams()
+  let productId = Number(id)  //Using Number instead of parseInt will save us from cases like "34af", as parseInt will still converts this value to a number but we don't want it in url parameter.
 
   useEffect(() => {
+    if (productId < 0 || productId >= 100 || !Number.isInteger(productId)) { navigate("/notfound"); return }//If id is less than 1 or greater than 100 or not a valid number or is not a integer like 12.3 etc cases then redirect to 404 page.
     dispatch(fetchAll())
   }, [])
+
+  if (productId !== 0) {
+    productId--
+  }
 
   const randoms = []
   while (randoms.length < 5) {
@@ -29,11 +38,6 @@ const ProductCategories = () => {
 
   const data = Object.keys(allData).length > 1 && allData.products
 
-  const { id } = useParams()
-  let productId = parseInt(id)
-  if (productId !== 0) {
-    productId--
-  }
 
   const category = data.length > 1 && data.filter((val, ind) => val.category === data[productId].category)
   const randomData = data.length > 1 && data.filter((val, ind) => randoms.includes(ind))
@@ -52,7 +56,7 @@ const ProductCategories = () => {
             <h2 className='my-4'>Products related To {topCarouselData.category}</h2>
 
             {/* Heading Card */}
-            <div className='row mb-4 pOutParent'>
+            <div onClick={() => navigate(`/description/${topCarouselData.id}`)} className='row mb-4 pOutParent'>
               <div className="col-md-6 d-flex justify-content-center">
                 <div className="pOutImgParent">
                   <img src={topCarouselData.images[3] || topCarouselData.images[0]} alt="" />
@@ -96,12 +100,4 @@ const ProductCategories = () => {
   )
 }
 
-export default ProductCategories
-
-
-// 'id',
-// 'title',
-// 'description',
-// 'price',
-// 'discountPercentage',
-// 'rating', 'stock', 'brand', 'category', 'thumbnail', 'images'
+export default ProductCategories 

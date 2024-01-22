@@ -1,3 +1,4 @@
+import Description from './cPages/Description';
 import ProductCategories from './cPages/ProductCategories';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/category/:id' element={<ProductCategories />} />
+          <Route path='/description/:id' element={<Description />} />
           <Route path='*' element={<div>404: Page not found</div>} />
         </Routes>
       </Router>

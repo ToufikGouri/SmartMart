@@ -1,6 +1,7 @@
 .pOutParent {
     background-color: #212121;
     width: 80vw;
+    box-shadow: 0 0 15px 0px #606060;
 }
 
 .pOutImgParent img {
@@ -12,6 +13,10 @@
 .pCard {
     background-color: #212121;
     width: 60vw;
+}
+
+.pCard:hover {
+    cursor: pointer;
 }
 
 .pImgParent {
@@ -34,6 +39,50 @@
     border-radius: 8px !important;
     /* box-shadow: 0px 0px 10px 0px #bee2ff ; */
 }
+
+
+/* Slick Css */
+
+.slick-dots li button:before {
+    color: rgb(178, 178, 178) !important;
+}
+
+.slick-dots li.slick-active button::before {
+    color: white !important;
+    transform: scale(1.5);
+}
+
+.desBtn {
+    color: white;
+    font-size: 25px;
+    height: 80px;
+    padding: 0 5px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: 100ms ease-in-out;
+    top: 0;
+    right: 0;
+}
+
+.desPrev:hover {
+    transform: scale(1.1);
+    right: 5px;
+}
+
+.desNext:hover {
+    transform: scale(1.1);
+    left: 5px;
+}
+
+
+/* To remove the default btns */
+.slick-prev:before,
+.slick-next:before {
+    content: '' !important;
+}
+
 
 
 /* pContent to be jus-C-C in resposive */
