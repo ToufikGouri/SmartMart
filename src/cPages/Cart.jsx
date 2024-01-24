@@ -54,14 +54,14 @@ const Cart = () => {
             <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content" style={{ backgroundColor: "#212121" }}>
-                        <div className="modal-header border-bottom-noNeed">
+                        <div className="modal-header border-0">
                             <h1 className="modal-title fs-5" id="exampleModalLabel">This Feature Is Coming Soon <i className="fa-regular fa-face-laugh-beam fs-4 mx-1"></i> </h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" style={{ filter: "invert(1)" }}></button>
                         </div>
                         <div className="modal-body mb-1">
                             Till then please explore the website & have fun <i className="fa-regular fa-face-smile-beam fs-5 mx-1"></i>
                         </div>
-                        <div className="modal-footer border-top-noNeed">
+                        <div className="modal-footer border-0">
                             {/* <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
                             <button type="button" className="btn btn-primary px-4 py-2" data-bs-dismiss="modal">Okay</button>
                         </div>
@@ -73,14 +73,14 @@ const Cart = () => {
             <div className="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content" style={{ backgroundColor: "#212121" }}>
-                        <div className="modal-header border-bottom-noNeed">
+                        <div className="modal-header border-0">
                             <h1 className="modal-title fs-5" id="exampleModalLabel">Remove Item</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" style={{ filter: "invert(1)" }}></button>
                         </div>
                         <div className="modal-body mb-1">
                             Are you sure you want to remove this item?
                         </div>
-                        <div className="modal-footer border-top-noNeed">
+                        <div className="modal-footer border-0">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                             <button onClick={() => removeAllHandle(itemToRemove)} type="button" className="btn btn-primary" data-bs-dismiss="modal">Remove</button>
                         </div>
