@@ -4,6 +4,10 @@
     box-shadow: 0 0 15px 0px #606060;
 }
 
+.pOutParent{
+    cursor: pointer;
+}
+
 .pOutImgParent img {
     object-fit: cover;
     aspect-ratio: 16/9;
@@ -76,6 +80,14 @@
     left: 5px;
 }
 
+.myAlert {
+    height: 50px;
+    font-size: 18px;
+    background-color: #11af11 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* To remove the default btns */
 .slick-prev:before,

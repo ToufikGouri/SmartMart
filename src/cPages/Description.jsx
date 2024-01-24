@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAll } from '../functions/fetchData'
+import { fetchAll, addToCart } from '../functions/fetchData'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Loading from '../components/Loading'
@@ -15,8 +15,10 @@ const Description = () => {
 
     const allData = useSelector(state => state.allData)
     const isLoading = useSelector(state => state.isLoading)
+    const cartItems = useSelector(state => state.cartItems)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const cartIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" style={{ position: "relative", bottom: "3px" }} className="bi bi-cart3" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" /></svg>
 
     const { id } = useParams()
     let productId = Number(id)  //Using Number instead of parseInt will save us from cases like "34af", as parseInt will still converts this value to a number but we don't want it in url parameter.
@@ -72,13 +74,19 @@ const Description = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 1200,
-        // speed: 800,
+        speed: 1000,
+        autoplay: true,
+        autoplaySpeed: 3500,
         slidesToShow: 1,
         slidesToScroll: 1,
         nextArrow: <NextBtn />,
         prevArrow: <PreviousBtn />
     };
+
+    const cartHandle = (item) => {
+        dispatch(addToCart(item));
+        navigate("/cart")
+    }
 
     return (
         <>
@@ -108,6 +116,7 @@ const Description = () => {
                                     <h5>Huge Discounts Up To <span className='text-warning'>{Math.round(product.discountPercentage)}% OFF</span> </h5>
                                     <h5>Seller: {product.brand}</h5>
                                     <h5>Rating: {product.rating}⭐</h5>
+                                    <button onClick={() => cartHandle(product)} className="btn btn-light my-2 atcBtn">{cartIcon} Add To Cart</button>
                                 </div>
                             </div>
                         </div>
