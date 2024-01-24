@@ -15,6 +15,7 @@ const Cart = () => {
     const isLoading = useSelector(state => state.isLoading);
     const [addAlert, setAddAlert] = useState(false)
     const [removeAlert, setRemoveAlert] = useState(false)
+    const [itemToRemove, setItemToRemove] = useState(null)
     const itemCount = useSelector(cartItemCount)
 
     const addHandle = (item) => {
@@ -48,19 +49,40 @@ const Cart = () => {
     return (
         <>
             {/* Modal */}
+
+            {/* For place order */}
             <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content" style={{backgroundColor: "#212121"}}>
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content" style={{ backgroundColor: "#212121" }}>
                         <div className="modal-header border-bottom-noNeed">
-                            <h1 className="modal-title fs-5" id="exampleModalLabel">This Feature Is Coming Soon <i className="fa-regular fa-face-laugh-beam fs-4"></i> </h1>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">This Feature Is Coming Soon <i className="fa-regular fa-face-laugh-beam fs-4 mx-1"></i> </h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" style={{ filter: "invert(1)" }}></button>
                         </div>
-                        <div className="modal-body mb-2">
-                            Till then please explore the website & have fun <i className="fa-regular fa-face-smile-beam fs-5"></i>
+                        <div className="modal-body mb-1">
+                            Till then please explore the website & have fun <i className="fa-regular fa-face-smile-beam fs-5 mx-1"></i>
                         </div>
                         <div className="modal-footer border-top-noNeed">
                             {/* <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
                             <button type="button" className="btn btn-primary px-4 py-2" data-bs-dismiss="modal">Okay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* For remove all items */}
+            <div className="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content" style={{ backgroundColor: "#212121" }}>
+                        <div className="modal-header border-bottom-noNeed">
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Remove Item</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" style={{ filter: "invert(1)" }}></button>
+                        </div>
+                        <div className="modal-body mb-1">
+                            Are you sure you want to remove this item?
+                        </div>
+                        <div className="modal-footer border-top-noNeed">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button onClick={() => removeAllHandle(itemToRemove)} type="button" className="btn btn-primary" data-bs-dismiss="modal">Remove</button>
                         </div>
                     </div>
                 </div>
@@ -112,7 +134,7 @@ const Cart = () => {
                                                             <i onClick={() => addHandle(val)} className="fa-solid fa-circle-plus fs-4"></i>
 
                                                         </div>
-                                                        <button onClick={() => removeAllHandle(val)} className="btn btn-outline-light "> Remove All</button>
+                                                        <button onClick={() => setItemToRemove(val)} type='button' className="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal2">Remove All</button>
                                                     </div>
 
                                                     <i>Delivery by {val.date}</i> {/*Fun fact: This "by" & price section last two lines are the only non-capitalize word in whole website*/}

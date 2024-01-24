@@ -24,7 +24,7 @@ const Navbar = () => {
                                 <Link className="nav-link active" aria-current="page" to="/"><i className="fa-regular fa-circle-user mx-1"></i> Login</Link>
                             </li>
                             <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/cart"><i className='mx-1'>{cartIcon}</i> Cart {itemCount} </Link>
+                                <Link className="nav-link" to="/cart"><i className='mx-1 position-relative'>{cartIcon}<span className={`navItemCount d-${itemCount === 0 && "none"}`}><span>{itemCount}</span></span></i> Cart </Link>
                             </li>
                             <li className="nav-item mx-2">
                                 <Link className="nav-link" to="/"><i className="fa-solid fa-store  mx-1"></i> Become a seller</Link>

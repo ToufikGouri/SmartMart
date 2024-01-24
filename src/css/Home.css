@@ -8,6 +8,25 @@ nav li:hover {
     transform: scale(1.1);
 }
 
+.navItemCount {
+    font-style: normal !important;
+    position: absolute;
+    left: 7px;
+    bottom: 15px;
+    border-radius: 50%;
+    background-color: #ff3e3e;
+    font-size: 10px;
+    height: 15px;
+    width: 15px;
+}
+
+.navItemCount span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black !important;
+}
+
 .search {
     background-color: #f0f5ff;
     width: 200px;
