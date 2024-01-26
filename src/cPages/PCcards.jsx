@@ -5,7 +5,7 @@ import '../css/cPage.css'
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../functions/fetchData';
 
-const PCcards = ({ data, routeToCategory }) => {
+const PCcards = ({ data, routeToCategory, query }) => {
 
     // If routeToCategory is true it indicates we are on the "Description page".
     const navigate = useNavigate()
@@ -20,11 +20,13 @@ const PCcards = ({ data, routeToCategory }) => {
         }
     }
 
-    const cartHandle = (e,val) => {
+    const cartHandle = (e, val) => {
         e.stopPropagation();
         dispatch(addToCart(val))
         navigate("/cart")
     }
+
+    const slicer = query ? [0] : [1, 5];
 
     return (
         <div>
@@ -42,12 +44,12 @@ const PCcards = ({ data, routeToCategory }) => {
                                 <h5>Starting From ${val.price}</h5>
                                 <h6>{(val.description.length > 80 ? val.description.slice(0, 80) + "..." : val.description)}</h6>
                                 <i className='d-block'>In Stock {val.stock}</i>
-                                <button onClick={(e) => cartHandle(e,val)} className={`btn btn-light my-2 atcBtn d-${!routeToCategory && "none"}`}>{cartIcon} Add To Cart</button> {/*Read Logic at top to understand*/}
+                                <button onClick={(e) => cartHandle(e, val)} className={`btn btn-light my-2 atcBtn d-${!routeToCategory && "none"}`}>{cartIcon} Add To Cart</button> {/*Read Logic at top to understand*/}
                             </div>
                         </div>
                     </div>
                 </div>
-            }).slice(1, 5)}
+            }).slice(...slicer)}
         </div>
     )
 }

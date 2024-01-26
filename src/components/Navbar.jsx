@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import '../css/Home.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartItemCount, userDetails } from '../functions/fetchData'
 import { account } from '../appwrite/appwriteConfig'
+import axios from 'axios'
 
 const Navbar = () => {
 
@@ -18,28 +19,42 @@ const Navbar = () => {
         try {
             await account.deleteSession("current")
             navigate("/")
-        } catch (error) {
-            console.log(error);
-        }
-        setIsLogout(true)
+        } catch (error) { } finally { setIsLogout(true) }
+
     }
 
+    const [query, setQuery] = useSearchParams()
+
+    const [searchQuery, setSearchQuery] = useState('')
 
     useEffect(() => {
         if (!userData) {
             dispatch(userDetails())
             setIsLogout(true)
         }
-    }, [isLogout])
+    }, [isLogout, setSearchQuery])
     // console.log(userData);
     // Make reload and update the nav on each login or logout
+    // give centered modal for asking logout
+
+    const searchHandle = async () => {
+        const value = searchQuery.trim()
+
+        if (value.length > 0) {
+            setQuery({ q: value })
+            navigate(`/search?q=${value}`)
+        }
+
+        setSearchQuery('')
+    }
+
 
     return (
         <>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">SmartMart</Link>
-                    {/*<i className="fa-solid fa-magnifying-glass searchIcon"></i>*/} <input className="form-control search me-2" type="search" placeholder="Search" aria-label="Search" />
+                    {/*<i className="fa-solid fa-magnifying-glass searchIcon"></i>*/} <input className="form-control search me-2" type="search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onKeyDown={(e) => e.key === "Enter" && searchHandle()} placeholder="Search" aria-label="Search" />
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style={{ borderColor: "#8f8d8b" }}>
                         <span className="navbar-toggler-icon" style={{ filter: "invert(1)" }}></span>
                     </button>

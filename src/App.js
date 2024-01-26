@@ -1,5 +1,4 @@
 import Cart from './cPages/Cart';
-import CheckDatabase from './cPages/CheckDatabase';
 import Description from './cPages/Description';
 import FeedBack from './cPages/FeedBack';
 import Login from './cPages/Login';
@@ -9,6 +8,7 @@ import SignUp from './cPages/SignUp';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import QueryPage from './components/QueryPage';
 
 function App() {
   return (
@@ -19,12 +19,12 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/category/:id' element={<ProductCategories />} />
           <Route path='/description/:id' element={<Description />} />
+          <Route path='/search' element={<QueryPage />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/feedback' element={<FeedBack />} />
-          <Route path='/check' element={<CheckDatabase />} />
           <Route path='*' element={<div>404: Page not found</div>} />
         </Routes>
       </Router>
