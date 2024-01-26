@@ -1,4 +1,6 @@
 import { createSlice, createAsyncThunk, nanoid } from '@reduxjs/toolkit'
+import { account } from '../appwrite/appwriteConfig'
+
 import axios from 'axios'
 
 const fetchAlldata = "https://dummyjson.com/products?limit=0"
@@ -15,6 +17,14 @@ export const fetchCategories = createAsyncThunk('fetchCategories', async () => {
     return response.data
 })
 
+export const userDetails = createAsyncThunk('userDetails', async () => {
+    try {
+        const getData = await account.get()
+        return getData;
+    } catch (error) {
+        return 0
+    }
+})
 
 
 export const fetchData = createSlice({
@@ -24,6 +34,7 @@ export const fetchData = createSlice({
         allData: [],
         categories: [],
         cartItems: [],
+        user: false,
         isError: false,
     },
     reducers: {
@@ -43,7 +54,7 @@ export const fetchData = createSlice({
                 isItemExist.quantity += 1
             }
             else {
-                state.cartItems.push({ ...action.payload, quantity: 1,date: date })
+                state.cartItems.push({ ...action.payload, quantity: 1, date: date })
             }
         },
         removeFromCart: (state, action) => {
@@ -87,6 +98,21 @@ export const fetchData = createSlice({
             state.categories = action.payload;
         });
         builder.addCase(fetchCategories.rejected, (state, action) => {
+            console.log("Error", action.payload);
+            state.isLoading = false;
+            state.isError = true
+        });
+
+
+        // Fetch User Details
+        builder.addCase(userDetails.pending, (state, action) => {
+            state.isLoading = true
+        });
+        builder.addCase(userDetails.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.user = action.payload;
+        });
+        builder.addCase(userDetails.rejected, (state, action) => {
             console.log("Error", action.payload);
             state.isLoading = false;
             state.isError = true

@@ -95,6 +95,16 @@
     content: '' !important;
 }
 
+/* FeedBack Form css */
+
+.fbParent {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid white; */
+}
 
 
 /* pContent to be jus-C-C in resposive */
