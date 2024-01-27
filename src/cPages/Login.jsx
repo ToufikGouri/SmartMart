@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { account } from '../appwrite/appwriteConfig'
 import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { userDetails } from '../functions/fetchData'
 
 const Login = () => {
 
     const [showpass, setShowpass] = useState(false)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const [user, setUser] = useState({
         email: "",
@@ -19,6 +22,9 @@ const Login = () => {
             navigate("/")
         } catch (error) {
             console.log(error);
+        }
+        finally {
+            dispatch(userDetails())
         }
     }
 

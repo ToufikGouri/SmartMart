@@ -4,7 +4,6 @@ import '../css/Home.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartItemCount, userDetails } from '../functions/fetchData'
 import { account } from '../appwrite/appwriteConfig'
-import axios from 'axios'
 
 const Navbar = () => {
 
@@ -13,29 +12,16 @@ const Navbar = () => {
     const userData = useSelector(state => state.user)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const [isLogout, setIsLogout] = useState(false)
+    const [query, setQuery] = useSearchParams()
+    const [searchQuery, setSearchQuery] = useState('')
 
     const handleLogout = async () => {
         try {
             await account.deleteSession("current")
             navigate("/")
-        } catch (error) { } finally { setIsLogout(true) }
-
-    }
-
-    const [query, setQuery] = useSearchParams()
-
-    const [searchQuery, setSearchQuery] = useState('')
-
-    useEffect(() => {
-        if (!userData) {
             dispatch(userDetails())
-            setIsLogout(true)
-        }
-    }, [isLogout, setSearchQuery])
-    // console.log(userData);
-    // Make reload and update the nav on each login or logout
-    // give centered modal for asking logout
+        } catch (error) { }
+    }
 
     const searchHandle = async () => {
         const value = searchQuery.trim()
@@ -44,13 +30,37 @@ const Navbar = () => {
             setQuery({ q: value })
             navigate(`/search?q=${value}`)
         }
-
         setSearchQuery('')
     }
 
+    useEffect(() => {
+        if (!userData) {
+            dispatch(userDetails())
+        }
+        console.log(userData);
+    }, [dispatch, userData])
 
     return (
         <>
+            {/* Modal for logout */}
+            <div className="modal fade" id="exampleModal3" tabIndex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content" style={{ backgroundColor: "#212121" }}>
+                        <div className="modal-header border-0">
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Log Out</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" style={{ filter: "invert(1)" }}></button>
+                        </div>
+                        <div className="modal-body mb-1">
+                            Are you sure you want to log out?
+                        </div>
+                        <div className="modal-footer border-0">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button onClick={handleLogout} type="button" className="btn btn-primary" data-bs-dismiss="modal">Log Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">SmartMart</Link>
@@ -61,24 +71,21 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                         <ul className="navbar-nav mb-2 mb-lg-0">
                             {userData ?
-                                (
-                                    <li className="dropdown-center">
-                                        <Link className="dropdown-toggle nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i className="fa-regular fa-circle-user mx-1"></i> {userData.name}
-                                        </Link>
-                                        <ul className="dropdown-menu" style={{ backgroundColor: "#1c1c1c" }}>
-                                            <li className="nav-item d-flex justify-content-center">
-                                                <button onClick={handleLogout} className="btn btn-outline-light"><i className="fa-solid fa-right-from-bracket"></i> Log Out</button>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                )
+                                <li className="dropdown-center">
+                                    <Link className="dropdown-toggle nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i className="fa-regular fa-circle-user mx-1"></i> {userData.name}
+                                    </Link>
+                                    <ul className="dropdown-menu" style={{ backgroundColor: "#1c1c1c" }}>
+                                        <li className="nav-item d-flex justify-content-center">
+                                            <button data-bs-toggle="modal" data-bs-target="#exampleModal3" className="btn btn-outline-light"><i className="fa-solid fa-right-from-bracket"></i> Log Out</button>
+                                        </li>
+                                    </ul>
+                                </li>
                                 :
-                                (
-                                    <li className="nav-item mx-2">
-                                        <Link className="nav-link active" aria-current="page" to="/login"><i className="fa-regular fa-circle-user mx-1"></i> Login</Link>
-                                    </li>
-                                )}
+                                <li className="nav-item mx-2">
+                                    <Link className="nav-link active" aria-current="page" to="/login"><i className="fa-regular fa-circle-user mx-1"></i> Login</Link>
+                                </li>
+                            }
                             <li className="nav-item mx-2">
                                 <Link className="nav-link" to="/cart"><i className='mx-1 position-relative'>{cartIcon}<span className={`navItemCount d-${itemCount === 0 && "none"}`}><span>{itemCount}</span></span></i> Cart </Link>
                             </li>
