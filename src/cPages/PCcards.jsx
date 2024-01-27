@@ -43,6 +43,7 @@ const PCcards = ({ data, routeToCategory, query }) => {
                                 <h4>{val.title}</h4>
                                 <h5>Starting From ${val.price}</h5>
                                 <h6>{(val.description.length > 80 ? val.description.slice(0, 80) + "..." : val.description)}</h6>
+                                <h6>Rating: {val.rating}⭐</h6>
                                 <i className='d-block'>In Stock {val.stock}</i>
                                 <button onClick={(e) => cartHandle(e, val)} className={`btn btn-light my-2 atcBtn d-${!routeToCategory && "none"}`}>{cartIcon} Add To Cart</button> {/*Read Logic at top to understand*/}
                             </div>

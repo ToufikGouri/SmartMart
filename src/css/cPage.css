@@ -4,7 +4,7 @@
     box-shadow: 0 0 15px 0px #606060;
 }
 
-.pOutParent{
+.pOutParent {
     cursor: pointer;
 }
 
@@ -83,7 +83,7 @@
 .myAlert {
     height: 50px;
     font-size: 18px;
-    background-color: #11af11 ;
+    background-color: #11af11;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,5 +106,17 @@
     /* border: 1px solid white; */
 }
 
+/* QueryPage css */
+
+.sortby {
+    cursor: pointer;
+    display: inline-block;
+    text-transform: none !important;
+}
+
+.sortActive {
+    color: rgb(0, 170, 238);
+    border-bottom: 2px solid rgb(0, 170, 238);
+}
 
 /* pContent to be jus-C-C in resposive */
