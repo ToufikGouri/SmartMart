@@ -125,7 +125,7 @@ const Cart = () => {
                                                     <h4 className='text-capitalize'>{val.title}</h4>
                                                     <h6 className='text-capitalize'>Seller: {val.brand}</h6>
                                                     <h5>Price ${val.price * val.quantity} <span className="text-myGreen fs-6">{Math.round9 = (val.discountPercentage)}% OFF</span></h5>
-                                                    {val.stock < 51 ? <div className='text-info'>Hurry Up Only {val.stock} Left !!</div> : <i className='d-block'>In Stock {val.stock}</i>}
+                                                    {val.stock < 51 ? <h6 className='text-info'>Hurry Up Only {val.stock} Left !!</h6> : <i className='d-block'>In Stock {val.stock}</i>}
 
                                                     <div className='cartCardBtn my-3'>
                                                         <div className='d-flex align-items-center'>
@@ -134,7 +134,7 @@ const Cart = () => {
                                                             <i onClick={() => addHandle(val)} className="fa-solid fa-circle-plus fs-4"></i>
 
                                                         </div>
-                                                        <button onClick={() => setItemToRemove(val)} type='button' className="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal2">Remove All</button>
+                                                        <button onClick={() => setItemToRemove(val)} type='button' className="btn removeBtn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal2">Remove All</button>
                                                     </div>
 
                                                     <i>Delivery by {val.date}</i> {/*Fun fact: This "by" & price section last two lines are the only non-capitalize word in whole website*/}
@@ -176,7 +176,7 @@ const Cart = () => {
                     </div>
                 )}
 
-            <div className={`${cartItems.length < 3 && "footerAdjust"}`}> <Footer /></div>
+            <div className={`${cartItems.length < 3 ? "footerAdjust" : " "}`}> <Footer /></div>
         </>
     )
 }
