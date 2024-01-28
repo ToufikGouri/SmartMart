@@ -112,11 +112,13 @@
     cursor: pointer;
     display: inline-block;
     text-transform: none !important;
+    color: #8d8d8d;
 }
 
 .sortActive {
-    color: rgb(0, 170, 238);
+    color: rgb(0, 170, 238) !important;
     border-bottom: 2px solid rgb(0, 170, 238);
+    transform: scale(1.1);
 }
 
 @media (max-width: 767.9px) {
@@ -178,6 +180,11 @@
 
     .pContent h6 {
         font-size: 12px;
+    }
+
+    .sortParent {
+        width: 90vw !important;
+        font-size: 14px;
     }
 
 }

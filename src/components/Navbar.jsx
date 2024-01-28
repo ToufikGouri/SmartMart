@@ -30,7 +30,7 @@ const Navbar = () => {
             setQuery({ q: value })
             navigate(`/search?q=${value}`)
         }
-        setSearchQuery('')
+        // setSearchQuery('')
     }
 
     useEffect(() => {

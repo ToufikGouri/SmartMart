@@ -109,7 +109,7 @@ const Description = () => {
                                 </div>
                             </div>
                             <div className="col-md-6 d-flex align-items-center">
-                                <div className="pContent">
+                                <div className="pContent w-100">
                                     <h2>{product.title}</h2>
                                     <h5>Only From <span className='fs-3' style={{ color: "#00d900" }}>${product.price}</span></h5>
                                     <h6>{(product.description.length > 80 ? product.description.slice(0, 80) + "..." : product.description)}</h6>
