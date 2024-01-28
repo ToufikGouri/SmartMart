@@ -116,7 +116,7 @@ const Description = () => {
                                     <h5>Huge Discounts Up To <span className='text-warning'>{Math.round(product.discountPercentage)}% OFF</span> </h5>
                                     <h5>Seller: {product.brand}</h5>
                                     <h5>Rating: {product.rating}⭐</h5>
-                                    <button onClick={() => cartHandle(product)} className="btn btn-light my-2 atcBtn">{cartIcon} Add To Cart</button>
+                                    <div><button onClick={() => cartHandle(product)} className="btn btn-light my-2 atcBtn">{cartIcon} Add To Cart</button></div>
                                 </div>
                             </div>
                         </div>
@@ -136,8 +136,8 @@ const Description = () => {
                         <PCcards data={category} routeToCategory={true} />
                         {/* Handle the route page */}
 
-                        <h3 className='m-3'>Can't Find The Item You are Looking For?</h3>
-                        <h5 className='mb-5'><Link className='text-success text-decoration-none' to="/">Click Me</Link> To Go Home Page Or Search For Your Favourite Items. </h5>
+                        <h3 className='m-3 text-center'>Can't Find The Item You are Looking For?</h3>
+                        <h5 className='mb-5 text-center'><Link className='text-success text-decoration-none' to="/">Click Me</Link> To Go Home Page Or Search For Your Favourite Items. </h5>
 
                         <Footer />
 

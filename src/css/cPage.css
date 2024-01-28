@@ -130,6 +130,10 @@
         width: 150px;
     }
 
+    .pOutImgParent {
+        padding-right: 0 !important;
+    }
+
     .pCard .col-md-6 {
         width: 50%;
     }
@@ -147,11 +151,32 @@
         font-size: 12px;
     }
 
-    .topHeading{
+    .topHeading {
         font-size: 20px;
     }
 
-    .atcBtn{
+    .atcBtn {
+        font-size: 12px;
+    }
+
+    .pContent>:last-child {
+        display: flex;
+        justify-content: center;
+    }
+
+    .pContent {
+        margin: 25px 0px;
+    }
+
+    .pContent h2 {
+        font-size: 20px;
+    }
+
+    .pContent h5 {
+        font-size: 14px;
+    }
+
+    .pContent h6 {
         font-size: 12px;
     }
 
