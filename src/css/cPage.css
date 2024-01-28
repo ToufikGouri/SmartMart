@@ -119,4 +119,42 @@
     border-bottom: 2px solid rgb(0, 170, 238);
 }
 
+@media (max-width: 767.9px) {
+    .pCard {
+        width: 90vw;
+        flex-wrap: nowrap;
+    }
+
+    .pImgParent {
+        height: 120px;
+        width: 150px;
+    }
+
+    .pCard .col-md-6 {
+        width: 50%;
+    }
+
+    .pCard h4 {
+        font-size: 16px;
+    }
+
+    .pCard h5 {
+        font-size: 14px;
+    }
+
+    .pCard h6,
+    i {
+        font-size: 12px;
+    }
+
+    .topHeading{
+        font-size: 20px;
+    }
+
+    .atcBtn{
+        font-size: 12px;
+    }
+
+}
+
 /* pContent to be jus-C-C in resposive */

@@ -53,7 +53,7 @@ const ProductCategories = () => {
       <div>
         {data.length > 1 &&
           <div className='text-capitalize d-flex flex-column align-items-center'>
-            <h2 className='my-4'>Products related To {topCarouselData.category}</h2>
+            <h2 className='my-4 topHeading'>Products related To {topCarouselData.category}</h2>
 
             {/* Heading Card */}
             <div onClick={() => navigate(`/description/${topCarouselData.id}`)} className='row mb-4 pOutParent'>
@@ -88,8 +88,8 @@ const ProductCategories = () => {
               product details
             */}
 
-            <h3 className='m-3'>Can't Find The Item You are Looking For?</h3>
-            <h5 className='mb-5'><Link className='text-success text-decoration-none' to="/">Click Me</Link> To Go Home Page Or Search For Your Favourite Items. </h5>
+            <h3 className='m-3 text-center'>Can't Find The Item You are Looking For?</h3>
+            <h5 className='mb-5 text-center'><Link className='text-success text-decoration-none' to="/">Click Me</Link> To Go Home Page Or Search For Your Favourite Items. </h5>
 
             <Footer />
 
