@@ -62,12 +62,14 @@ const Navbar = () => {
             </div>
 
             <nav className="navbar navbar-expand-lg">
-                <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">SmartMart</Link>
-                    {/*<i className="fa-solid fa-magnifying-glass searchIcon"></i>*/} <input className="form-control search me-2" type="search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onKeyDown={(e) => e.key === "Enter" && searchHandle()} placeholder="Search" aria-label="Search" />
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style={{ borderColor: "#8f8d8b" }}>
-                        <span className="navbar-toggler-icon" style={{ filter: "invert(1)" }}></span>
-                    </button>
+                <div className="container-fluid position-relative">
+                    <div>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i className="fa-solid fa-ellipsis-vertical text-light"></i>
+                        </button>
+                        <Link className="navbar-brand" to="/">SmartMart</Link>
+                    </div>
+                    <input className="form-control search me-2" type="search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onKeyDown={(e) => e.key === "Enter" && searchHandle()} placeholder="Search" aria-label="Search" />
                     <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                         <ul className="navbar-nav mb-2 mb-lg-0">
                             {userData ?
@@ -90,7 +92,7 @@ const Navbar = () => {
                                 <Link className="nav-link" to="/cart"><i className='mx-1 position-relative'>{cartIcon}<span className={`navItemCount d-${itemCount === 0 && "none"}`}><span>{itemCount}</span></span></i> Cart </Link>
                             </li>
                             <li className="nav-item mx-2">
-                                <Link className="nav-link" to="/feedback"><i className="fa-solid fa-store  mx-1"></i> Become a seller</Link>
+                                <Link className="nav-link" to="/feedback"><i className="fa-solid fa-comment-dots mx-1"></i> Feedback</Link>
                             </li>
                         </ul>
                     </div>

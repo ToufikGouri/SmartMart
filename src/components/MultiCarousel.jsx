@@ -43,7 +43,24 @@ const MultiCarousel = ({ multiData }) => {
         slidesToShow: slidesTS,
         slidesToScroll: 3,
         nextArrow: <NextBtn />,
-        prevArrow: <PreviousBtn />
+        prevArrow: <PreviousBtn />,
+        responsive: [
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 6,
+                    slidesToScroll: 3,
+                }
+            },
+            
+        ]
     };
 
     // 0 SmartPhones,1 Laptops MEN Watches 12
@@ -52,12 +69,11 @@ const MultiCarousel = ({ multiData }) => {
 
     return (
         <>
-            <div style={{ width: "95vw" }}>
+            <div className='ecardParent' style={{ width: "95vw" }}>
                 <Slider {...settings}>
                     {multiData && multiData.map((val) => {
 
                         const content = Math.round(Math.random() * 2) /*To get random Text Content for each card */
-
                         return (
                             <div onClick={() => navigate(`/category/${val.id}`)} className='text-center text-capitalize eCard' key={val.id}>
                                 <div className='eImgParent'>
@@ -67,7 +83,7 @@ const MultiCarousel = ({ multiData }) => {
                                 {
                                     (content === 0) && <h6>From <span className='text-myGreen'>${val.price}</span></h6> ||
                                     (content === 1) && <h6>Up To <span className='text-warning'>{Math.round(val.discountPercentage)}% OFF</span></h6> ||
-                                    (content === 2) && <h6>Great Deals On {val.brand}</h6>
+                                    (content === 2) && <h6>Great Deals On {(val.brand).slice(0,5)}...</h6>
                                 }
                             </div>
                         )
