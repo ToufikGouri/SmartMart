@@ -10,7 +10,7 @@ const PageNotFound = () => {
   useEffect(() => {
 
     switch (location.pathname) {
-      case "/": document.title = "SmartMart - Youm home for online shopping"; break;
+      case "/": document.title = "SmartMart - Your home for online shopping"; break;
       case "/cart": document.title = "My Cart - SmartMart"; break;
       case "/feedback": document.title = "Feedback - SmartMart"; break;
       case "/login": document.title = "Login - SmartMart"; break;
