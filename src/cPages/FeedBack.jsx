@@ -10,26 +10,13 @@ const FeedBack = () => {
     const { appwriteDbId, appwriteDbClctIdFB } = conf;
     const [userDetails, setUserDetails] = useState({ uName: '', uMsg: '', uReason: '' })
 
-    console.log(userDetails);
-
     const handleSubmit = (e) => {
         e.preventDefault()
 
         // Name, Msg, Reason
 
         const myData = { Name: userDetails.uName, Msg: userDetails.uMsg, Reason: userDetails.uReason }
-        console.log(myData, "is my data");
-
         const promise = databases.createDocument(appwriteDbId, appwriteDbClctIdFB, uuidv4(), myData)
-
-        promise.then(
-            function (response) {
-                console.log(response);
-            },
-            function (error) {
-                console.log(error);
-            }
-        )
 
         setUserDetails({ uName: '', uMsg: '', uReason: '' });
 

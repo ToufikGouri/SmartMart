@@ -20,9 +20,7 @@ const Login = () => {
         try {
             await account.createEmailSession(user.email, user.password)
             navigate("/")
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) { }
         finally {
             dispatch(userDetails())
         }

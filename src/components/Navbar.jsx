@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { cartItemCount, userDetails } from '../functions/fetchData'
 import { account } from '../appwrite/appwriteConfig'
 import SmartMart_Text from "../SmartMart_Text.png"
+import PageNotFound from './PageNotFound'
 
 const Navbar = () => {
 
@@ -38,7 +39,7 @@ const Navbar = () => {
         if (!userData) {
             dispatch(userDetails())
         }
-        console.log(userData);
+
     }, [dispatch, userData])
 
     return (
@@ -60,7 +61,7 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  <div className='d-none'><PageNotFound /></div>   {/* Find a better way */}
 
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid position-relative">
@@ -68,7 +69,7 @@ const Navbar = () => {
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <i className="fa-solid fa-ellipsis-vertical text-light fs-6"></i>
                         </button>
-                        <Link className="navbar-brand" to="/"><img src={SmartMart_Text} alt="SmartMart_Text.png" style={{height: "25px"}} /></Link>
+                        <Link className="navbar-brand" to="/"><img src={SmartMart_Text} alt="SmartMart_Text.png" style={{ height: "25px" }} /></Link>
                     </div>
                     <input className="form-control search me-2" type="search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onKeyDown={(e) => e.key === "Enter" && searchHandle()} placeholder="Search" aria-label="Search" />
                     <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">

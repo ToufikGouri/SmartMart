@@ -16,7 +16,6 @@ const Home = () => {
     const dispatch = useDispatch();
     const allData = useSelector(state => state.allData)
     const isLoading = useSelector(state => state.isLoading)
-    console.log("My data", allData);
 
     // getting category vise 0-5-10..95-99
     const allCategories = (Object.keys(allData).length > 1) && allData.products.map(val => [val.category, val.images[0], val.id]).filter((val, ind) => ind % 5 === 0)

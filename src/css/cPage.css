@@ -135,6 +135,25 @@
     transform: scale(1.1);
 }
 
+/* PageNotFound css */
+
+.pnfParent {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pnfParent button:hover {
+    transition: 100ms ease-in-out;
+    transform: scale(1.1);
+}
+
+.pnfParent i {
+    font-size: 50px;
+}
+
 /* Auth css */
 
 .authContainer {

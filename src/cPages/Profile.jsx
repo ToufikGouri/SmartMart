@@ -11,24 +11,16 @@ const Profile = () => {
         getData.then(
             function (response) {
                 setUserDetails(response)
-                console.log("profile success");
             },
-            function (error) {
-                console.log("Profile error");
-                console.log(error);
-            }
+            function (error) { }
         )
     }, [])
-
-    console.log("userDetails",userDetails);
 
     const handleLogout = async () => {
         try {
             await account.deleteSession("current")
             navgate("/")
-        } catch (error) {
-            console.log(error);
-        }
+        } catch (error) { }
     }
 
     return (

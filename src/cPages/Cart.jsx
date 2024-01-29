@@ -51,7 +51,7 @@ const Cart = () => {
             {/* Modal */}
 
             {/* For place order */}
-            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content" style={{ backgroundColor: "#212121" }}>
                         <div className="modal-header border-0">
@@ -70,7 +70,7 @@ const Cart = () => {
             </div>
 
             {/* For remove all items */}
-            <div className="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div className="modal fade" id="exampleModal2" tabIndex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content" style={{ backgroundColor: "#212121" }}>
                         <div className="modal-header border-0">

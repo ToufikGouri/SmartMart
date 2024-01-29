@@ -83,7 +83,7 @@ export const fetchData = createSlice({
             state.allData = action.payload;
         });
         builder.addCase(fetchAll.rejected, (state, action) => {
-            console.log("Error", action.payload);
+            // console.log("Error", action.payload);
             state.isLoading = false;
             state.isError = true
         });
@@ -98,7 +98,7 @@ export const fetchData = createSlice({
             state.categories = action.payload;
         });
         builder.addCase(fetchCategories.rejected, (state, action) => {
-            console.log("Error", action.payload);
+            // console.log("Error", action.payload);
             state.isLoading = false;
             state.isError = true
         });
@@ -113,7 +113,7 @@ export const fetchData = createSlice({
             state.user = action.payload;
         });
         builder.addCase(userDetails.rejected, (state, action) => {
-            console.log("Error", action.payload);
+            // console.log("Error", action.payload);
             state.isLoading = false;
             state.isError = true
         });
