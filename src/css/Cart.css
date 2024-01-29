@@ -176,6 +176,15 @@
         margin-bottom: 40px !important;
     }
 
+    .cartEmptyParent {
+        height: 78vh;
+    }
+
+    .cartEmptyImg {
+        height: 200px;
+        width: 350px;
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 1150px) {

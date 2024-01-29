@@ -4,6 +4,7 @@ import '../css/Home.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartItemCount, userDetails } from '../functions/fetchData'
 import { account } from '../appwrite/appwriteConfig'
+import SmartMart_Text from "../SmartMart_Text.png"
 
 const Navbar = () => {
 
@@ -67,7 +68,7 @@ const Navbar = () => {
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <i className="fa-solid fa-ellipsis-vertical text-light fs-6"></i>
                         </button>
-                        <Link className="navbar-brand" to="/">SmartMart</Link>
+                        <Link className="navbar-brand" to="/"><img src={SmartMart_Text} alt="SmartMart_Text.png" style={{height: "25px"}} /></Link>
                     </div>
                     <input className="form-control search me-2" type="search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onKeyDown={(e) => e.key === "Enter" && searchHandle()} placeholder="Search" aria-label="Search" />
                     <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
