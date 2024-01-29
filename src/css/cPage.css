@@ -121,6 +121,65 @@
     transform: scale(1.1);
 }
 
+/* Auth css */
+
+.authContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    background-color: #25262B;
+    border-radius: 15px;
+    color: white;
+    height: 550px;
+}
+
+.authContainer input {
+    background: transparent !important;
+    color: white !important;
+    border-radius: 0;
+    border: none;
+    box-shadow: none !important;
+    border-bottom: 1px solid rgb(115, 115, 115);
+    width: 350px;
+}
+
+.authContainer button {
+    width: 350px;
+}
+
+.eyeLogo {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+
+.loginLink:hover {
+    color: #858585 !important;
+}
+
+::placeholder {
+    color: white !important;
+    opacity: 0.5 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #25262B inset !important;
+    -webkit-text-fill-color: white !important;
+    caret-color: white !important;
+}
+
+
+/* Responsiveness */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .authContainer {
+        width: 60%;
+    }
+}
+
 @media (max-width: 767.9px) {
     .pCard {
         width: 90vw;
@@ -185,6 +244,24 @@
     .sortParent {
         width: 90vw !important;
         font-size: 14px;
+    }
+
+
+    .authContainer {
+        /* width: 95%; */
+        width: 100%;
+    }
+
+    .authContainer input {
+        width: 280px;
+    }
+
+    .authContainer button {
+        width: 280px;
+    }
+
+    .authContainer .loginLink:hover {
+        color: inherit !important;
     }
 
 }
