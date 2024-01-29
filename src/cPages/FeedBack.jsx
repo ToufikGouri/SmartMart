@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { databases } from '../appwrite/appwriteConfig'
 import { v4 as uuidv4 } from 'uuid'
 import conf from '../appwrite/conf'
 import Footer from '../components/Footer'
 import '../css/cPage.css'
+import { useNavigate } from 'react-router-dom'
+import * as bootstrap from 'bootstrap';
 
 const FeedBack = () => {
 
+    window.bootstrap = bootstrap;
+    const navigate = useNavigate()
     const { appwriteDbId, appwriteDbClctIdFB } = conf;
     const [userDetails, setUserDetails] = useState({ uName: '', uMsg: '', uReason: '' })
 
@@ -19,11 +23,31 @@ const FeedBack = () => {
         const promise = databases.createDocument(appwriteDbId, appwriteDbClctIdFB, uuidv4(), myData)
 
         setUserDetails({ uName: '', uMsg: '', uReason: '' });
-
+        const myModalElement = new bootstrap.Modal(document.getElementById("exampleModal5"))
+        myModalElement.show()
     }
+
 
     return (
         <>
+            {/* Thank you modal */}
+            <div className="modal fade" id="exampleModal5" tabIndex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content" style={{ backgroundColor: "#212121" }}>
+                        <div className="modal-header border-0">
+                            {/* <h1 className="modal-title fs-5" id="exampleModalLabel">Remove Item</h1> */}
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" style={{ filter: "invert(1)" }}></button>
+                        </div>
+                        <div className="modal-body mb-1 fs-5">
+                            Thank You for your feedback.
+                        </div>
+                        <div className="modal-footer border-0">
+                            {/* <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Go to home</button> */}
+                            <button type="button" onClick={() => navigate("/")} className="btn btn-primary" data-bs-dismiss="modal">Go to home page</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className='d-flex justify-content-center align-items-center flex-column'>
                 <div className='fbParent text-center'>
                     <h4>How was your experience with the website, any Suggestions or Bug report? <br />Feel free to describe.</h4>

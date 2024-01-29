@@ -25,8 +25,13 @@ const SignUp = () => {
 
     }
 
+    const googleAuth = () => {
+        account.createOAuth2Session("google", "https://smartmart7.netlify.app", "https://smartmart7.netlify.app/signup")
+    }
+
     return (
         <>
+            {/* Modal for login */}
             <div className="modal fade" id="exampleModal4" tabIndex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content" style={{ backgroundColor: "#212121" }}>
@@ -44,11 +49,12 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
+
             <div className="container authContainer text-white" style={{ height: "595px" }}>
 
                 <h2 className='text-center my-4'>Sign Up</h2>
                 {/* <form className='text-white d-flex flex-column align-items-center' action='#' method='POST'> */}
-                <form className='text-white d-flex flex-column align-items-center'>
+                <form className='text-white d-flex flex-column align-items-center ' onSubmit={(e) => signupUser(e)}>
                     <div className="mb-2">
                         <label htmlFor="name" className="form-label">Name</label>
                         <input type="text" className="form-control" id="name" name='name' aria-describedby="emailHelp" onChange={(e) => setUser({ ...user, name: e.target.value })} required placeholder='Enter your name   (min 5 chars)' />
@@ -62,14 +68,14 @@ const SignUp = () => {
                         <input type={showpass ? "text" : "password"} className="form-control" id="password" name='password' onChange={(e) => setUser({ ...user, password: e.target.value })} minLength={5} required placeholder='Enter your password   (min 5 chars)' />
                         <i onClick={() => setShowpass(!showpass)} className={`fa-regular fa-eye${showpass ? "" : "-slash"} eyeLogo loginLink mb-1`}></i>
                     </div>
-                    <button type="submit" onClick={signupUser} data-bs-toggle="modal" data-bs-target="#exampleModal4" className={`btn btn-outline-success my-4 ${(user.name.length < 5 || user.password.length < 5 || user.email.length < 8) ? "disabled" : ""}`}>Submit</button>
+                    <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal4" className={`btn btn-outline-success my-4 ${(user.name.length < 5 || user.password.length < 5 || user.email.length < 8) ? "disabled" : ""}`}>Submit</button>
 
                 </form>
 
                 <div className="text-center">
                     <p>Or Sign up with</p>
                     <div>
-                        <i className="fa-brands fa-google mx-2 text-dark bg-light p-1 rounded-circle loginLink"></i>
+                        <i onClick={googleAuth} className="fa-brands fa-google mx-2 text-dark bg-light p-1 rounded-circle loginLink"></i>
                         <i className="fa-brands fa-facebook mx-2 text-dark bg-light p-1 rounded-circle loginLink"></i>
                         <i className="fa-brands fa-twitter mx-2 text-dark bg-light p-1 rounded-circle loginLink"></i>
                     </div>
