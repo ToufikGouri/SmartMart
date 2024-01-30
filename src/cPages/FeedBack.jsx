@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { databases } from '../appwrite/appwriteConfig'
 import { v4 as uuidv4 } from 'uuid'
 import conf from '../appwrite/conf'
 import Footer from '../components/Footer'
 import '../css/cPage.css'
 import { useNavigate } from 'react-router-dom'
-import * as bootstrap from 'bootstrap';
 
 const FeedBack = () => {
 
-    window.bootstrap = bootstrap;
     const navigate = useNavigate()
     const { appwriteDbId, appwriteDbClctIdFB } = conf;
     const [userDetails, setUserDetails] = useState({ uName: '', uMsg: '', uReason: '' })
@@ -23,10 +21,10 @@ const FeedBack = () => {
         const promise = databases.createDocument(appwriteDbId, appwriteDbClctIdFB, uuidv4(), myData)
 
         setUserDetails({ uName: '', uMsg: '', uReason: '' });
-        const myModalElement = new bootstrap.Modal(document.getElementById("exampleModal5"))
-        myModalElement.show()
-    }
 
+        const myModal = new window.bootstrap.Modal(document.getElementById("exampleModal5"));
+        myModal.show();
+    }
 
     return (
         <>

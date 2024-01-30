@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { account } from '../appwrite/appwriteConfig'
 import { Link, useNavigate } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
@@ -22,12 +22,11 @@ const SignUp = () => {
             user.password,
             user.name
         );
-
+        const myModal2 = new window.bootstrap.Modal(document.getElementById("exampleModal4"));
+        myModal2.show();
     }
 
-    const googleAuth = () => {
-        account.createOAuth2Session("google", "https://smartmart7.netlify.app", "https://smartmart7.netlify.app/signup")
-    }
+
 
     return (
         <>
@@ -65,17 +64,17 @@ const SignUp = () => {
                     </div>
                     <div className="mb-2 position-relative">
                         <label htmlFor="password" className="form-label">Password</label>
-                        <input type={showpass ? "text" : "password"} className="form-control" id="password" name='password' onChange={(e) => setUser({ ...user, password: e.target.value })} minLength={5} required placeholder='Enter your password   (min 5 chars)' />
+                        <input type={showpass ? "text" : "password"} className="form-control" id="password" name='password' onChange={(e) => setUser({ ...user, password: e.target.value })} minLength={5} required placeholder='Enter your password   (min 8 chars)' />
                         <i onClick={() => setShowpass(!showpass)} className={`fa-regular fa-eye${showpass ? "" : "-slash"} eyeLogo loginLink mb-1`}></i>
                     </div>
-                    <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal4" className={`btn btn-outline-success my-4 ${(user.name.length < 5 || user.password.length < 5 || user.email.length < 8) ? "disabled" : ""}`}>Submit</button>
+                    <button type="submit" className={`btn btn-outline-success my-4 ${(user.name.length < 5 || user.password.length < 8 || user.email.length < 5) ? "disabled" : ""}`}>Submit</button>
 
                 </form>
 
                 <div className="text-center">
-                    <p>Or Sign up with</p>
-                    <div>
-                        <i onClick={googleAuth} className="fa-brands fa-google mx-2 text-dark bg-light p-1 rounded-circle loginLink"></i>
+                    <p className='d-none'>Or Sign up with</p>
+                    <div className='d-none'>
+                        <i className="fa-brands fa-google mx-2 text-dark bg-light p-1 rounded-circle loginLink"></i>
                         <i className="fa-brands fa-facebook mx-2 text-dark bg-light p-1 rounded-circle loginLink"></i>
                         <i className="fa-brands fa-twitter mx-2 text-dark bg-light p-1 rounded-circle loginLink"></i>
                     </div>

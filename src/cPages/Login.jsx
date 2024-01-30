@@ -45,8 +45,8 @@ const Login = () => {
             </form>
 
             <div className="text-center">
-                <p>Or continue with</p>
-                <div>
+                <p className='d-none'>Or continue with</p>
+                <div className='d-none'>
                     <i className="fa-brands fa-google mx-2 text-dark bg-light p-1 rounded-circle loginLink"></i>
                     <i className="fa-brands fa-facebook mx-2 text-dark bg-light p-1 rounded-circle loginLink"></i>
                     <i className="fa-brands fa-twitter mx-2 text-dark bg-light p-1 rounded-circle loginLink"></i>
