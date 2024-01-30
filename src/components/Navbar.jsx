@@ -64,7 +64,7 @@ const Navbar = () => {
             </div>  <div className='d-none'><PageNotFound /></div>   {/* Find a better way */}
 
             <nav className="navbar navbar-expand-lg">
-                <div className="container-fluid position-relative">
+                <div className="container-fluid">
                     <div>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <i className="fa-solid fa-ellipsis-vertical text-light fs-6"></i>
@@ -80,7 +80,7 @@ const Navbar = () => {
                                         <i className="fa-regular fa-circle-user mx-1"></i> {userData.name}
                                     </Link>
                                     <ul className="dropdown-menu" style={{ backgroundColor: "#1c1c1c" }}>
-                                        <li className="nav-item d-flex justify-content-center">
+                                        <li className="nav-item d-flex logoutBtn justify-content-center">
                                             <button data-bs-toggle="modal" data-bs-target="#exampleModal3" className="btn btn-outline-light"><i className="fa-solid fa-right-from-bracket"></i> Log Out</button>
                                         </li>
                                     </ul>
