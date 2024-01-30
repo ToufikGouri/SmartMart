@@ -58,11 +58,15 @@
 
 .myAlert {
     height: 50px;
+    width: 100%;
     font-size: 18px;
     background-color: #11af11;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 55px;
+    z-index: 5;
 }
 
 .cartCardBtn {

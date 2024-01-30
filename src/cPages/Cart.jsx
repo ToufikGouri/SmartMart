@@ -104,10 +104,8 @@ const Cart = () => {
                 // If cart has products
                 (
                     <div>
-                        <div className='position-sticky top-0' style={{ height: "50px" }}>
-                            <div className={`myAlert d-${addAlert ? "" : "none"}`}>Item Added Successfully <i className="fa-regular fa-circle-check mx-2"></i></div>
-                            <div className={`myAlert d-${removeAlert ? "" : "none"} bg-secondary`}>Item Removed Successfully <i className="fa-regular fa-circle-check mx-2"></i></div>
-                        </div>
+                        <div className={`myAlert d-${addAlert ? "" : "none"}`}>Item Added Successfully <i className="fa-regular fa-circle-check mx-2"></i></div>
+                        <div className={`myAlert d-${removeAlert ? "" : "none"} bg-secondary`}>Item Removed Successfully <i className="fa-regular fa-circle-check mx-2"></i></div>
 
                         <div className="row my-2 mx-0"> {/*Row gets x margin by default in bootstrap keep m-0*/}
 
@@ -124,7 +122,7 @@ const Cart = () => {
                                                 <div className="cartContent">
                                                     <h4 className='text-capitalize'>{val.title}</h4>
                                                     <h6 className='text-capitalize'>Seller: {val.brand}</h6>
-                                                    <h5>Price ${val.price * val.quantity} <span className="text-myGreen fs-6">{Math.round9 = (val.discountPercentage)}% OFF</span></h5>
+                                                    <h5>Price ${val.price * val.quantity} <span className="text-myGreen fs-6">{Math.round(val.discountPercentage)}% OFF</span></h5>
                                                     {val.stock < 51 ? <h6 className='text-info'>Hurry Up Only {val.stock} Left !!</h6> : <i className='d-block'>In Stock {val.stock}</i>}
 
                                                     <div className='cartCardBtn my-3'>

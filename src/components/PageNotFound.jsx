@@ -15,9 +15,7 @@ const PageNotFound = () => {
       case "/feedback": document.title = "Feedback - SmartMart"; break;
       case "/login": document.title = "Login - SmartMart"; break;
       case "/signup": document.title = "Sign Up - SmartMart"; break;
-      case "/category/:id": document.title = "Sign Up - SmartMart"; break;
-      case "/signup": document.title = "Sign Up - SmartMart"; break;
-      default: document.title = "Page not found - SmartMart"
+      // default: document.title = "Page not found - SmartMart"
     }
 
   }, [location.pathname])
