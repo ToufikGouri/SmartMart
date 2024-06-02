@@ -83,7 +83,7 @@ const MultiCarousel = ({ multiData }) => {
                                 {
                                     (content === 0) && <h6>From <span className='text-myGreen'>${val.price}</span></h6> ||
                                     (content === 1) && <h6>Up To <span className='text-warning'>{Math.round(val.discountPercentage)}% OFF</span></h6> ||
-                                    (content === 2) && <h6>Great Deals On {(val.brand).slice(0,5)}...</h6>
+                                    (content === 2) && <h6>Great Deals On {(val.brand)}...</h6>
                                 }
                             </div>
                         )
