@@ -9,7 +9,7 @@
     background-color: #212121;
     box-shadow: 0 0 15px 0px #606060;
 }
-
+ 
 .carousel-item:hover {
     cursor: pointer;
 }
