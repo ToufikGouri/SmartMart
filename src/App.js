@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import QueryPage from './components/QueryPage';
 import PageNotFound from './components/PageNotFound';
+import CheckDatabase from './cPages/CheckDatabase';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/category/:id' element={<ProductCategories />} />
           <Route path='/description/:id' element={<Description />} />
           <Route path='/search' element={<QueryPage />} />
+          {/* <Route path='/checkdb' element={<CheckDatabase />} /> */}
           <Route path='/cart' element={<Cart />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />

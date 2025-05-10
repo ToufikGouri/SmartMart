@@ -10,7 +10,7 @@ const CarouselItem = ({ id, title, discount, img, price, brand, isActive }) => {
                 <div className='row'>
                     <div className="col-md-6 carouselCol-1 d-flex justify-content-center align-items-center">
                         <div className="cImgParent">
-                            <img src={img} className="d-block" alt="..." />
+                            <img src={img} className="d-block" alt="..." loading='eager' />
                         </div>
                     </div>
 

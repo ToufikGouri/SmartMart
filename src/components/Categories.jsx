@@ -10,7 +10,7 @@ const Categories = ({ category, img, id }) => {
             <div onClick={() => navigate(`/category/${id}`)} className='categoriesParent d-flex flex-column align-items-center mx-3'>
                 <div>
                     <div className='categoryImg'>
-                        <img src={img} alt="Product image" />
+                        <img src={img} alt="Product image" loading='lazy' />
                     </div>
                 </div>
                 <div className="categoryName text-capitalize text-center">{category}</div>
