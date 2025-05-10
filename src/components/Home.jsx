@@ -28,10 +28,12 @@ const Home = () => {
     const sqData2 = allCategories.length > 1 && allData.products.filter((val) => val.id >= 29 && val.id < 33) //H2-(29,30,31,32) 
     const sqData3 = allCategories.length > 1 && allData.products.filter((val) => (val.id === 35) || (val.id === 45) || (val.id === 55) || (val.id === 65)) //H3-(Random 4)
 
-    const sqData4 = allCategories.length > 1 && allData.products.filter((val) => val.id > 96) //H4-(97,98,99,100)
+    const sqData4 = allCategories.length > 1 && allData.products.filter((val) => val.id > 96 && val.id <= 100) //H4-(97,98,99,100)
     const sqData5 = allCategories.length > 1 && allData.products.filter((val) => (val.id === 68) || (val.id === 78) || (val.id === 88) || (val.id === 98)) //H5-(Random 4)
     const sqData6 = allCategories.length > 1 && allData.products.filter((val) => val.id >= 11 && val.id < 15) //H6-(11,12,13,14) 
 
+    console.log("sqData5", sqData5)
+    
     useEffect(() => {
         dispatch(fetchAll())
         // dispatch(fetchCategories())

@@ -35,7 +35,7 @@ const PCcards = ({ data, routeToCategory, query }) => {
                     <div onClick={() => redirectHandle(val.id)} className='row pCard'> {/*It will be easy navigate from this card as this have classname for hover */}
                         <div className="col-md-6 d-flex justify-content-center">
                             <div className="pImgParent my-3">
-                                <img src={val.images[3] || val.images[0]} alt="" />
+                                <img src={val.images[3] || val.images[0]} alt="" loading='lazy' />
                             </div>
                         </div>
                         <div className="col-md-6 d-flex align-items-center">

@@ -59,7 +59,7 @@ const ProductCategories = () => {
             <div onClick={() => navigate(`/description/${topCarouselData.id}`)} className='row mb-4 pOutParent'>
               <div className="col-md-6 d-flex justify-content-center">
                 <div className="pOutImgParent">
-                  <img src={topCarouselData.images[3] || topCarouselData.images[0]} alt="" />
+                  <img src={topCarouselData.images[3] || topCarouselData.images[0]} alt="" loading='eager' />
                 </div>
               </div>
               <div className="col-md-6 d-flex align-items-center">

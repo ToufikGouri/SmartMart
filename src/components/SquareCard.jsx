@@ -22,10 +22,10 @@ const SquareCard = ({ sqData, HeadingOne, HeadingTwo, HeadingThree }) => {
                                 <div className='d-flex flex-wrap justify-content-center' style={{ backgroundColor: "#212121" }}>
                                     {data1.map((val) => {
                                         return <div onClick={()=> navigate(`/category/${val.id}`)} className='text-center text-capitalize sqCard m-2' key={val.id}>
-                                            <div className='sqImgParent'>
-                                                <img src={val.images[1] || val.images[0]} alt="Image" />
+                                            <div className='sqImgParent'> 
+                                                <img src={val.images[1] || val.images[0]} alt="Image" loading='lazy' />
                                             </div>
-                                            <h5 className='my-2'>{val.brand}</h5>
+                                            <h5 className='my-2'>{val.brand ?? val.title}</h5>
                                         </div>
                                     })}
                                 </div>
@@ -41,9 +41,9 @@ const SquareCard = ({ sqData, HeadingOne, HeadingTwo, HeadingThree }) => {
                                     {data2.map((val) => {
                                         return <div onClick={()=> navigate(`/category/${val.id}`)} className='text-center text-capitalize sqCard m-2' key={val.id}>
                                             <div className='sqImgParent'>
-                                                <img src={val.images[1] || val.images[0]} alt="Image" />
+                                                <img src={val.images[1] || val.images[0]} alt="Image" loading='lazy' />
                                             </div>
-                                            <h5 className='my-2'>{val.brand}</h5>
+                                            <h5 className='my-2'>{val.brand ?? val.title}</h5>
                                         </div>
                                     })}
                                 </div>
@@ -59,9 +59,9 @@ const SquareCard = ({ sqData, HeadingOne, HeadingTwo, HeadingThree }) => {
                                     {data3.map((val) => {
                                         return <div onClick={()=> navigate(`/category/${val.id}`)} className='text-center text-capitalize sqCard m-2' key={val.id}>
                                             <div className='sqImgParent'>
-                                                <img src={val.images[1] || val.images[0]} alt="Image" />
+                                                <img src={val.images[1] || val.images[0]} alt="Image" loading='lazy' />
                                             </div>
-                                            <h5 className='my-2'>{val.brand}</h5>
+                                            <h5 className='my-2'>{val.brand ?? val.title}</h5>
                                         </div>
                                     })}
                                 </div>

@@ -77,13 +77,13 @@ const MultiCarousel = ({ multiData }) => {
                         return (
                             <div onClick={() => navigate(`/category/${val.id}`)} className='text-center text-capitalize eCard' key={val.id}>
                                 <div className='eImgParent'>
-                                    <img src={val.images[1] || val.images[0]} alt="Image" />
+                                    <img src={val.images[1] || val.images[0]} alt="Image" loading='lazy' />
                                 </div>
                                 <h5 className='fw-light my-2'>{val.category}</h5>
                                 {
                                     (content === 0) && <h6>From <span className='text-myGreen'>${val.price}</span></h6> ||
                                     (content === 1) && <h6>Up To <span className='text-warning'>{Math.round(val.discountPercentage)}% OFF</span></h6> ||
-                                    (content === 2) && <h6>Great Deals On {(val.brand)}...</h6>
+                                    (content === 2) && <h6>Great Deals On {(val.brand ?? val.category)}...</h6>
                                 }
                             </div>
                         )
